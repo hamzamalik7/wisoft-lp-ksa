@@ -1,42 +1,48 @@
 /* Default styles for all screens */
 @font-face {
-  font-family: 'Arabic';
-  src: url('../assets/fonts/DIN_NEXT_LT_ARABIC/ArbFONTS-DINNextLTArabic-Bold-2.ttf') format('truetype');
+  font-family: "Arabic";
+  src: url("../assets/fonts/DIN_NEXT_LT_ARABIC/ArbFONTS-DINNextLTArabic-Bold-2.ttf")
+    format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Arabic';
-  src: url('../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ Arabic\ Light.ttf') format('truetype');
+  font-family: "Arabic";
+  src: url("../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ Arabic\ Light.ttf")
+    format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Arabic';
-  src: url('../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ Arabic\ Medium.ttf') format('truetype');
+  font-family: "Arabic";
+  src: url("../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ Arabic\ Medium.ttf")
+    format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Arabic';
-  src: url('../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ Arabic\ Ultra\ Light.ttf') format('truetype');
+  font-family: "Arabic";
+  src: url("../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ Arabic\ Ultra\ Light.ttf")
+    format("truetype");
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Arabic';
-  src: url('../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ W23\ Bold.otf') format('opentype');
+  font-family: "Arabic";
+  src: url("../assets/fonts/DIN_NEXT_LT_ARABIC/DIN\ Next\ LT\ W23\ Bold.otf")
+    format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Arabic';
-  src: url('../assets/fonts/DIN_NEXT_LT_ARABIC/DINNextLTArabic-Regular-3.ttf') format('truetype');
+  font-family: "Arabic";
+  src: url("../assets/fonts/DIN_NEXT_LT_ARABIC/DINNextLTArabic-Regular-3.ttf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -47,14 +53,14 @@
 } */
 
 h1 {
-  font-family: 'Arabic';
+  font-family: "Arabic";
   font-weight: bold;
   font-size: 50px;
   color: #5096ce;
 }
 
 p {
-  font-family: 'Arabic';
+  font-family: "Arabic";
   font-weight: normal;
   font-size: 22px;
 }
@@ -68,7 +74,7 @@ body {
 }
 
 h2 {
-  font-family: 'Arabic';
+  font-family: "Arabic";
   font-weight: bold;
   font-size: 50px;
   color: #aac552;
@@ -82,20 +88,20 @@ h3 {
 }
 
 h4 {
-  font-family: 'Arabic';
+  font-family: "Arabic";
   font-weight: bold;
   font-size: 22px;
 }
 
 h5 {
-  font-family: 'Arabic';
+  font-family: "Arabic";
   font-weight: bold;
   font-size: 45px;
   color: white;
 }
 
 h6 {
-  font-family: 'Arabic';
+  font-family: "Arabic";
   font-size: 18px;
   font-weight: 450;
   display: inline-block;
@@ -111,7 +117,7 @@ h6 {
   direction: rtl;
   text-align: right;
   unicode-bidi: bidi-override;
-  font-family: 'Arabic';
+  font-family: "Arabic";
   line-height: 1.5;
   margin: 0;
   padding: 0;
@@ -269,7 +275,7 @@ h6 {
 }
 
 .column-header::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 2px;
@@ -295,7 +301,6 @@ h6 {
 .footer-socials a img {
   max-width: 35px;
   padding: 4px 4px;
-
 }
 
 .text-container-wrap {
@@ -344,13 +349,11 @@ h6 {
 
   .container-footer {
     padding: 0px 30px;
-
   }
 }
 
 /* Default styles for phones */
 @media (max-width: 767px) {
-
   h1,
   h2 {
     text-align: center;
@@ -1030,7 +1033,7 @@ h6 {
 /* introduction default styles */
 .welcome {
   position: relative;
-  background: url(../assets/images/1.png)no-repeat;
+  background: url(../assets/images/1.webp) no-repeat;
   background-position: cover;
   background-size: cover;
   align-items: right;
@@ -1049,7 +1052,7 @@ ul.custom-bullets li {
   padding-right: 6%; /* Space for the custom bullet */
   padding-top: 1%;
   font-size: 180%;
-  font-family: 'Arabic';
+  font-family: "Arabic";
   direction: rtl;
   text-align: right;
   color: aliceblue;
@@ -1058,7 +1061,7 @@ ul.custom-bullets li {
 }
 
 ul.custom-bullets li::before {
-  content: '•';
+  content: "•";
   position: absolute;
   right: 2%;
   color: #5495cd;
@@ -1144,16 +1147,16 @@ ul.custom-bullets li::before {
     background-position: right center;
   }
   .desktop-image {
-    display: none; 
+    display: none;
   }
-.mobile-image {
-    display: block; 
-}
-.lets-talk h5 {
-  font-size: 40px;
-}
-ul.custom-bullets li {
-  position: relative;
-  padding-right: 12%;
-}
+  .mobile-image {
+    display: block;
+  }
+  .lets-talk h5 {
+    font-size: 40px;
+  }
+  ul.custom-bullets li {
+    position: relative;
+    padding-right: 12%;
+  }
 }
