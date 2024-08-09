@@ -27,6 +27,8 @@
     <link rel="icon" href="assets/images/favicon.webp" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/favicon.webp" type="image/x-icon">
     <link rel="preload" href="assets/images/1.webp" as="image">
+    <link rel="preconnect" href="https://www.youtube.com">
+    <link rel="preconnect" href="https://img.youtube.com">
 </head>
 
 <body>
@@ -557,62 +559,65 @@
                     <li data-target="#carouselTestimonials" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
+                    <!-- First Carousel Item -->
                     <div class="carousel-item active">
                         <div class="row py-md-5 pb-5">
                             <div class="col-md-5">
-                                <div class="embed-responsive embed-responsive-16by9"><!--4by3 gives black padding-->
-                                    <iframe class="embed-responsive-item "
-                                        src="https://www.youtube.com/embed/OB7FMIHZhmI" allowfullscreen
-                                        style="border: none"></iframe>
+                                <div class="youtube-facade" data-video-id="OB7FMIHZhmI">
+                                    <img class="img-fluid" src="https://img.youtube.com/vi/OB7FMIHZhmI/hqdefault.jpg"
+                                        alt="YouTube Video Thumbnail">
+                                    <div class="play-button"></div>
                                 </div>
                             </div>
                             <div class="col-md-7 arabic-text p-3">
                                 <h3>“</h3>
                                 <p class="carousel-text">استمع إلى السيد سوراجيت داس، مدير المبيعات في ماكيتا، الإمارات
-                                    العربية المتحدة، الذي
-                                    يوصي بنا من أجل تطوير الموقع الإلكترونية.</p>
+                                    العربية المتحدة، الذي يوصي بنا من أجل تطوير الموقع الإلكترونية.</p>
                                 <h4>السيد سوراجيت داس - مدير المبيعات في ماكيتا</h4>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Second Carousel Item -->
                     <div class="carousel-item">
                         <div class="row py-md-5 pb-5">
                             <div class="col-md-5">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item "
-                                        src="https://www.youtube.com/embed/gtgcAF0KdqM" allowfullscreen
-                                        style="border: none"></iframe>
+                                <div class="youtube-facade" data-video-id="gtgcAF0KdqM">
+                                    <img class="img-fluid" src="https://img.youtube.com/vi/gtgcAF0KdqM/hqdefault.jpg"
+                                        alt="YouTube Video Thumbnail">
+                                    <div class="play-button"></div>
                                 </div>
                             </div>
                             <div class="col-md-7 arabic-text p-3">
                                 <h3>“</h3>
                                 <p class="carousel-text">استمع إلى السيد بسام الرفاعي، الشريك الإداري والمستشار الرئيسي
-                                    في VIG، الذي
-                                    يوصي بنا من أجل تطوير الموقع الإلكترونية.</p>
+                                    في VIG، الذي يوصي بنا من أجل تطوير الموقع الإلكترونية.</p>
                                 <h4>السيد بسام الرفاعي - الشريك الإداري والمستشار الرئيسي في VIG</h4>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Third Carousel Item -->
                     <div class="carousel-item">
                         <div class="row py-md-5 pb-5">
                             <div class="col-md-5">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe class="embed-responsive-item "
-                                        src="https://www.youtube.com/embed/jzLSmffTG_4" allowfullscreen
-                                        style="border: none"></iframe>
+                                <div class="youtube-facade" data-video-id="jzLSmffTG_4">
+                                    <img class="img-fluid" src="https://img.youtube.com/vi/jzLSmffTG_4/hqdefault.jpg"
+                                        alt="YouTube Video Thumbnail">
+                                    <div class="play-button"></div>
                                 </div>
                             </div>
                             <div class="col-md-7 arabic-text p-3">
                                 <h3>“</h3>
                                 <p class="carousel-text">استمع إلى سیجو ماثيوس، مدير المساعد في كومباس فنانشل سوليوشنز،
-                                    الذي
-                                    يوصي بنا من أجل تطوير الموقع الإلكترونية.</p>
+                                    الذي يوصي بنا من أجل تطوير الموقع الإلكترونية.</p>
                                 <h4>السيد سیجو ماثيوس - مدير المساعد في كومباس فنانشل سوليوشنز</h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <div class="container section-light">
@@ -716,34 +721,55 @@
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Full version of jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        var player;
         var carousel = $('#carouselTestimonials');
 
         function onYouTubeIframeAPIReady() {
-            player = new YT.Player('videoFrame', {
-                events: {
-                    'onStateChange': onPlayerStateChange
-                }
+            var players = {};
+
+            $('.youtube-facade').each(function (index) {
+                var facade = $(this);
+                var videoId = facade.data('video-id');
+
+                facade.on('click', function () {
+                    if (!players[videoId]) {
+                        var iframe = $('<iframe>', {
+                            width: "100%",
+                            height: "100%",
+                            src: "https://www.youtube.com/embed/" + videoId + "?enablejsapi=1&autoplay=1",
+                            frameborder: "0",
+                            allowfullscreen: true,
+                            allow: "autoplay; encrypted-media"
+                        });
+                        facade.empty().append(iframe);
+
+                        players[videoId] = new YT.Player(iframe[0], {
+                            events: {
+                                'onStateChange': function (event) {
+                                    if (event.data == YT.PlayerState.PLAYING) {
+                                        carousel.carousel('pause');
+                                    } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+                                        carousel.carousel('cycle');
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
             });
         }
 
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                carousel.carousel('pause');
-            } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-                carousel.carousel('cycle');
-            }
-        }
-
+        // Load YouTube API script
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     </script>
+
+
 </body>
 
 </html>
